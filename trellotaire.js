@@ -12,7 +12,7 @@ cards.useArc4 = true;
 
 cards.Card.prototype.flip = function(){
 	if (!this.id) console.log('trying to flip card with no id');
-	daveShades.post(url.build('cards/'+this.id+'/attachments', {url: pic(this), name: this.toString()}), function(error, response, body){});
+	daveShades.post(url.build('cards/'+this.id+'/attachments', {url: pic(this), name: this.toString()}), function(error, response, body){ });
 	daveShades.put(url.build('cards/'+this.id+'/name', {value: this.toString()}), function(error){});
 };
 cards.Card.prototype.toString = function(){
@@ -197,7 +197,7 @@ var pic = function(card){
 		default:
 			val = card.value;
 	}
-	return "https://s3.amazonaws.com/trellotaire-cards/"+val+"+of+"+card.suit+"s.png";
+	return "https://s3.amazonaws.com/trellotaire-cards/"+val+"of"+card.suit+"s.png";
 }
 
 var _post_card = function(new_card, name, idList, pic, callback){
